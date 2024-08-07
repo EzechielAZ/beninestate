@@ -1,291 +1,429 @@
-<html><head><base href="https://beninestate.com/">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BeninEstate - L'Excellence Immobilière au Bénin</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-    :root {
-        --primary-color: #0095f6;
-        --secondary-color: #405de6;
-        --accent-color: #fd1d1d;
-        --text-color: #262626;
-        --bg-color: #fafafa;
-        --card-bg: #ffffff;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--bg-color);
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    header {
-        background: var(--card-bg);
-        color: var(--text-color);
-        padding: 1rem 0;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--primary-color);
-    }
-
-    .nav-links {
-        display: flex;
-        list-style: none;
-    }
-
-    .nav-links li {
-        margin-left: 1.5rem;
-    }
-
-    .nav-links a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--primary-color);
-    }
-
-    .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: white;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .cta-button {
-        display: inline-block;
-        background: var(--primary-color);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .cta-button:hover {
-        background: var(--secondary-color);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-    }
-
-    .content-section {
-        padding: 5rem 0;
-        background-color: var(--card-bg);
-    }
-
-    .content-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        color: var(--primary-color);
-    }
-
-    .content-section p {
-        margin-bottom: 1.5rem;
-    }
-
-    .icon-text {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 1.5rem;
-    }
-
-    .icon-text i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-        margin-right: 1rem;
-        margin-top: 0.2rem;
-    }
-
-    footer {
-        background: var(--card-bg);
-        color: var(--text-color);
-        text-align: center;
-        padding: 2rem 0;
-        border-top: 1px solid #e6e6e6;
-    }
-
-    @media (max-width: 768px) {
-        .nav-links {
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeninEstate - Préinscription des Agents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --success-color: #28a745;
+            --error-color: #dc3545;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--secondary-color), #ffffff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo svg {
+            width: 60px;
+            height: 60px;
+        }
+        
+        form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            background-color: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 1rem auto;
+            }
+            
+            form {
+                padding: 1.5rem;
+            }
+        }
+        
+        .floating-label {
+            position: relative;
+        }
+        
+        .floating-label input, .floating-label select, .floating-label textarea {
+            padding: 1rem 0.75rem;
+        }
+        
+        .floating-label label {
+            position: absolute;
+            top: 50%;
+            left: 0.75rem;
+            transform: translateY(-50%);
+            background-color: #ffffff;
+            padding: 0 0.25rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label,
+        .floating-label select:focus + label,
+        .floating-label select:not(:placeholder-shown) + label,
+        .floating-label textarea:focus + label,
+        .floating-label textarea:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .success-message, .error-message {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-weight: 600;
             display: none;
         }
-
-        h1 {
-            font-size: 2.5rem;
+        
+        .success-message {
+            background-color: var(--success-color);
+            color: #ffffff;
         }
-    }
-</style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav class="container">
-            <div class="logo">BeninEstate</div>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-content">
-                <h1>L'Excellence Immobilière au Bénin</h1>
-                <p>BeninEstate : Votre partenaire de confiance pour des investissements immobiliers stratégiques</p>
-                <a href="#preinscription" class="cta-button">Me préinscrire</a>
+        
+        .error-message {
+            background-color: var(--error-color);
+            color: #ffffff;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container animate__animated animate__fadeIn">
+            <div class="header">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#0056b3"/>
+                        <path d="M30 70 L50 30 L70 70 Z" fill="#ffffff"/>
+                        <rect x="35" y="60" width="30" height="20" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <h1>Préinscription des Agents BeninEstate</h1>
+                <p>Rejoignez notre équipe d'élite</p>
             </div>
-        </section>
-
-        <section id="about" class="content-section">
-            <div class="container">
-                <h2>Bienvenue sur BeninEstate - Le Réseau Immobilier Innovant et Dynamique du Bénin !</h2>
-                
-                <h3><i class="fas fa-search"></i> Pour les Chercheurs de Propriétés :</h3>
-                <p>Chez BeninEstate, nous sommes en pleine phase de développement pour vous offrir une plateforme immobilière de premier choix, conçue pour répondre à toutes vos attentes. Notre objectif est de rendre votre recherche de propriété aussi fluide et agréable que possible. Explorez une future gamme étendue de biens immobiliers, allant des résidences familiales aux espaces commerciaux, avec des outils de recherche avancés et une interface conviviale.</p>
-                
-                <div class="icon-text">
-                    <i class="fas fa-filter"></i>
-                    <p><strong>Recherche Personnalisée :</strong> Affinez vos critères de recherche pour trouver exactement ce que vous cherchez grâce à notre moteur de recherche sophistiqué. Nous travaillons dur pour vous offrir des options adaptées à vos besoins spécifiques.</p>
+            <form id="preinscriptionForm" class="needs-validation" action="https://formspree.io/f/xwpebkbv" novalidate>
+                <div class="form-group floating-label">
+                    <input type="text" id="nom" name="nom" class="form-control" required placeholder=" ">
+                    <label for="nom">Nom</label>
+                    <div class="invalid-feedback">Veuillez entrer votre nom.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-vr-cardboard"></i>
-                    <p><strong>Visites Virtuelles et Photos Haute Définition :</strong> Bientôt disponibles, ces outils vous permettront de visualiser les propriétés en détail, vous offrant une première impression précise sans déplacement.</p>
+                <div class="form-group floating-label">
+                    <input type="text" id="prenom" name="prenom" class="form-control" required placeholder=" ">
+                    <label for="prenom">Prénom</label>
+                    <div class="invalid-feedback">Veuillez entrer votre prénom.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-user-tie"></i>
-                    <p><strong>Conseils et Accompagnement Personnalisé :</strong> Nos experts en immobilier seront à vos côtés pour vous offrir des conseils précieux et un accompagnement sur mesure tout au long de votre recherche.</p>
+                <div class="form-group floating-label">
+                    <input type="email" id="email" name="email" class="form-control" required placeholder=" ">
+                    <label for="email">Adresse e-mail</label>
+                    <div class="invalid-feedback">Veuillez entrer une adresse e-mail valide.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-gem"></i>
-                    <p><strong>Offres Exclusives et Opportunités d'Investissement :</strong> Profitez d'un accès anticipé à des offres exclusives et des opportunités d'investissement intéressantes. Nous nous engageons à vous fournir les meilleures options disponibles.</p>
+                <div class="form-group floating-label">
+                    <input type="tel" id="telephone" name="telephone" class="form-control" required placeholder=" ">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <div class="invalid-feedback">Veuillez entrer un numéro de téléphone valide.</div>
                 </div>
-                
-                <h3><i class="fas fa-briefcase"></i> Pour les Agents Immobiliers :</h3>
-                <p>Nous sommes ravis de vous annoncer que BeninEstate est actuellement en cours de développement et nous sommes à la recherche de futurs agents immobiliers passionnés et ambitieux pour rejoindre notre équipe. Si vous êtes un professionnel de l'immobilier déterminé à exceller, nous vous invitons à faire partie de notre aventure !</p>
-                
-                <div class="icon-text">
-                    <i class="fas fa-users"></i>
-                    <p><strong>Recrutement Actif :</strong> Nous recrutons actuellement des agents immobiliers pour nous aider à façonner le futur de BeninEstate. Rejoignez-nous pour être au cœur de l'innovation immobilière au Bénin.</p>
+                <div class="form-group floating-label">
+                    <select id="ville" name="ville" class="form-control" required>
+                        <option value="" disabled selected></option>
+                        <option value="cotonou">Cotonou</option>
+                        <option value="porto-novo">Porto-Novo</option>
+                        <option value="parakou">Parakou</option>
+                        <option value="abomey-calavi">Abomey-Calavi</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <label for="ville">Ville</label>
+                    <div class="invalid-feedback">Veuillez sélectionner une ville.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <p><strong>Rémunération Compétitive :</strong> Pour les meilleurs candidats, nous offrons des opportunités de rémunération attrayante en fonction de vos performances. Votre talent et votre expertise seront récompensés.</p>
+                <div class="form-group floating-label">
+                    <input type="number" id="experience" name="experience" class="form-control" min="0" max="50" required placeholder=" ">
+                    <label for="experience">Années d'expérience en immobilier</label>
+                    <div class="invalid-feedback">Veuillez entrer un nombre d'années d'expérience valide.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-bullhorn"></i>
-                    <p><strong>Visibilité et Accès à un Large Public :</strong> En tant qu'agent avec BeninEstate, vous aurez l'opportunité d'augmenter votre visibilité auprès d'une vaste audience de clients potentiels.</p>
+                <div class="form-group floating-label">
+                    <textarea id="motivation" name="motivation" class="form-control" rows="4" required placeholder=" "></textarea>
+                    <label for="motivation">Pourquoi souhaitez-vous devenir agent BeninEstate ?</label>
+                    <div class="invalid-feedback">Veuillez entrer votre motivation.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-tools"></i>
-                    <p><strong>Outils Avancés pour les Professionnels :</strong> Nous mettrons à votre disposition des outils et fonctionnalités de pointe pour gérer vos annonces et suivre vos prospects.</p>
+                <div class="form-group floating-label">
+                    <select id="frequenceTravail" name="frequenceTravail" class="form-control" required>
+                        <option value="" disabled selected></option>
+                        <option value="temps-plein">Temps plein</option>
+                        <option value="mi-temps">Mi-temps</option>
+                        <option value="week-end">Week-end</option>
+                        <option value="occasionnel">Occasionnel</option>
+                    </select>
+                    <label for="frequenceTravail">À quelle fréquence pourriez-vous travailler ?</label>
+                    <div class="invalid-feedback">Veuillez sélectionner une fréquence de travail.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-graduation-cap"></i>
-                    <p><strong>Formation et Support Continus :</strong> Bénéficiez de formations régulières et de notre support technique pour rester à la pointe des dernières tendances et technologies immobilières.</p>
+                <div class="form-group floating-label">
+                    <input type="number" id="proprietesSemaine" name="proprietesSemaine" class="form-control" min="1" max="100" required placeholder=" ">
+                    <label for="proprietesSemaine">Combien de propriétés pourrez-vous publier hebdomadairement ?</label>
+                    <div class="invalid-feedback">Veuillez entrer un nombre valide de propriétés.</div>
                 </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-handshake"></i>
-                    <p><strong>Opportunités de Collaboration et Partenariats :</strong> Engagez-vous dans des projets passionnants et établissez des collaborations fructueuses avec d'autres professionnels du secteur.</p>
+                <div class="form-group floating-label">
+                    <input type="number" id="remunerationEsperee" name="remunerationEsperee" class="form-control" min="0" required placeholder=" ">
+                    <label for="remunerationEsperee">Quelle rémunération espéreriez-vous de BeninEstate pour un mois de partenariat régulier ?</label>
+                    <div class="invalid-feedback">Veuillez entrer une rémunération valide.</div>
                 </div>
-                
-                <h3><i class="fas fa-star"></i> Pourquoi Choisir BeninEstate ?</h3>
-                
-                <div class="icon-text">
-                    <i class="fas fa-microchip"></i>
-                    <p><strong>Innovation Technologique :</strong> Nous utilisons les dernières technologies pour vous offrir une expérience utilisateur moderne et efficace.</p>
-                </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p><strong>Engagement Local :</strong> Nous sommes profondément ancrés dans le marché immobilier béninois, ce qui nous permet de mieux comprendre vos besoins spécifiques.</p>
-                </div>
-                
-                <div class="icon-text">
-                    <i class="fas fa-users"></i>
-                    <p><strong>Communauté Dynamique :</strong> Faites partie d'une communauté de professionnels passionnés et motivés, partagez vos expériences et développez vos compétences.</p>
-                </div>
-                
-                <p>Que vous cherchiez à acheter, louer ou vendre une propriété, ou que vous souhaitiez rejoindre une équipe d'agents immobiliers dynamiques et bien rémunérés, BeninEstate est la plateforme qu'il vous faut. Découvrez dès maintenant notre vision pour l'avenir et faites le premier pas vers une collaboration fructueuse et un avenir immobilier prometteur.</p>
-                
-                <p>Explorez nos offres dès maintenant ou contactez-nous pour rejoindre notre équipe d'experts !</p>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#preinscription" class="cta-button">Me préinscrire</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 BeninEstate. L'excellence immobilière au service de votre patrimoine.</p>
+                <button type="submit" class="btn btn-primary btn-block">Soumettre ma préinscription</button>
+            </form>
         </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    
+        <script>
+            // Form validation
+            const form = document.getElementById('preinscriptionForm');
+            const constraints = {
+                nom: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer votre nom" },
+                    length: { minimum: 2, message: "^Le nom doit contenir au moins 2 caractères" }
+                },
+                prenom: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer votre prénom" },
+                    length: { minimum: 2, message: "^Le prénom doit contenir au moins 2 caractères" }
+                },
+                email: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer votre adresse e-mail" },
+                    email: { message: "^Veuillez entrer une adresse e-mail valide" }
+                },
+                telephone: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer votre numéro de téléphone" },
+                    format: {
+                        pattern: /^[0-9+\s()-]{8,}$/,
+                        message: "^Veuillez entrer un numéro de téléphone valide"
+                    }
+                },
+                ville: {
+                    presence: { allowEmpty: false, message: "^Veuillez sélectionner une ville" }
+                },
+                experience: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer vos années d'expérience" },
+                    numericality: {
+                        onlyInteger: true,
+                        greaterThanOrEqualTo: 0,
+                        lessThanOrEqualTo: 50,
+                        message: "^Veuillez entrer un nombre entre 0 et 50"
+                    }
+                },
+                motivation: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer votre motivation" },
+                    length: { minimum: 50, message: "^Votre motivation doit contenir au moins 50 caractères" }
+                },
+                frequenceTravail: {
+                    presence: { allowEmpty: false, message: "^Veuillez sélectionner une fréquence de travail" }
+                },
+                proprietesSemaine: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer le nombre de propriétés" },
+                    numericality: {
+                        onlyInteger: true,
+                        greaterThan: 0,
+                        lessThanOrEqualTo: 100,
+                        message: "^Veuillez entrer un nombre entre 1 et 100"
+                    }
+                },
+                remunerationEsperee: {
+                    presence: { allowEmpty: false, message: "^Veuillez entrer la rémunération espérée" },
+                    numericality: {
+                        greaterThanOrEqualTo: 0,
+                        message: "^Veuillez entrer un montant valide"
+                    }
+                }
+            };
+    
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const formValues = {
+                    nom: form.elements.nom.value,
+                    prenom: form.elements.prenom.value,
+                    email: form.elements.email.value,
+                    telephone: form.elements.telephone.value,
+                    ville: form.elements.ville.value,
+                    experience: form.elements.experience.value,
+                    motivation: form.elements.motivation.value,
+                    frequenceTravail: form.elements.frequenceTravail.value,
+                    proprietesSemaine: form.elements.proprietesSemaine.value,
+                    remunerationEsperee: form.elements.remunerationEsperee.value
+                };
+    
+                const errors = validate(formValues, constraints);
+    
+                if (errors) {
+                    Object.keys(errors).forEach(function(key) {
+                        const element = form.elements[key];
+                        element.classList.add('is-invalid');
+                        element.nextElementSibling.nextElementSibling.textContent = errors[key][0];
+                    });
+                } else {
+                    // Afficher une animation de chargement
+                    Swal.fire({
+                        title: 'Envoi en cours...',
+                        text: 'Veuillez patienter',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        willOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+    
+                    // Envoi des données avec Formspree
+                    fetch('https://formspree.io/f/xwpebkbv', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formValues)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        Swal.fire({
+                            title: 'Succès!',
+                            text: 'Votre préinscription a été envoyée avec succès. Nous vous contacterons bientôt.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                form.reset();
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: 'Erreur!',
+                            text: 'Une erreur est survenue lors de l\'envoi de votre préinscription. Veuillez réessayer plus tard.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    });
+                }
+            });
+    
+            // Réinitialiser la validation lors de l'entrée de données
+            form.querySelectorAll('input, select, textarea').forEach(function(element) {
+                element.addEventListener('input', function() {
+                    this.classList.remove('is-invalid');
+                    this.nextElementSibling.nextElementSibling.textContent = '';
                 });
             });
-        });
-    </script>
-</body>
-</html>
+    
+            // Animation des labels flottants
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentNode.classList.add('active');
+                });
+                input.addEventListener('blur', () => {
+                    if (input.value === '') {
+                        input.parentNode.classList.remove('active');
+                    }
+                });
+            });
+        </script>
+    </body></html>
+
+
